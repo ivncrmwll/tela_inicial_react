@@ -1,11 +1,18 @@
 import './App.css'
 import Footer from './components/footer'
+import { Logo } from './Logo'
+import Header from './components/Header'
+import BemVindo from './components/BemVindo'
 
 function App() {
 return (
 <div>
-<h1>My Daily Habits</h1>
-<p>Gerencie seus hábitos diários de forma simples e visual.</p>
+<Logo />
+<Header
+titulo="Meus Hábitos Diários"
+descricao="Gerencie seus hábitos diários de forma simples e visual." />
+
+<BemVindo nomeUsuario="Ivan ITEAM" totalHabitos={5} />
 <Footer />
 </div>
 )
