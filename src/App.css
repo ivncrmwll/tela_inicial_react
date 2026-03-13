@@ -19,12 +19,8 @@
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -38,5 +34,33 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: #a1a1aa; /* Cinza mais claro para dar leitura no fundo escuro */
+}
+
+body {
+ font-family: system-ui, -apple-system, sans-serif;
+ margin: 0;
+ background-color: #121212; /* Fundo principal escuro */
+ color: #e4e4e7; /* Texto principal claro */
+}
+
+header, footer {
+ padding: 16px;
+ background-color: #1f2937; /* Cinza escuro para contrastar com o body */
+ color: #f9fafb;
+ text-align: center;
+}
+
+main, section {
+ padding: 16px;
+ max-width: 800px;
+ margin: 0 auto;
+}
+
+.habit-card {
+ background-color: #1e293b; /* Fundo do card escuro */
+ border-radius: 8px;
+ padding: 12px 16px;
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Sombra um pouco mais forte e escura */
+ margin-bottom: 12px;
 }
