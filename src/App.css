@@ -4,7 +4,6 @@
   padding: 2rem;
   text-align: center;
 }
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -17,50 +16,80 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
 @keyframes logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
-
 .card {
   padding: 2em;
 }
-
 .read-the-docs {
   color: #a1a1aa; /* Cinza mais claro para dar leitura no fundo escuro */
 }
-
 body {
  font-family: system-ui, -apple-system, sans-serif;
  margin: 0;
  background-color: #121212; /* Fundo principal escuro */
  color: #e4e4e7; /* Texto principal claro */
 }
-
 header, footer {
  padding: 16px;
  background-color: #1f2937; /* Cinza escuro para contrastar com o body */
  color: #f9fafb;
  text-align: center;
 }
-
 main, section {
  padding: 16px;
  max-width: 800px;
  margin: 0 auto;
 }
-
 .habit-card {
  background-color: #1e293b; /* Fundo do card escuro */
  border-radius: 8px;
  padding: 12px 16px;
  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Sombra um pouco mais forte e escura */
  margin-bottom: 12px;
+}
+.habit-form {
+  background-color: #1e293b; /* Fundo escuro */
+  color: #f8fafc; /* Texto claro principal */
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Sombra adaptada para fundo escuro */
+  margin-bottom: 16px;
+}
+.habit-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #cbd5e1; /* Texto secundário um pouco mais suave */
+}
+.habit-form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: 1px solid #334155; /* Borda sutil */
+  background-color: #0f172a; /* Fundo do input ainda mais escuro */
+  color: #f8fafc;
+  font-size: 0.9rem;
+}
+.habit-form button {
+  margin-top: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: #3b82f6; /* Cor de destaque (azul) para o botão */
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.habit-form button:hover {
+  background-color: #2563eb; /* Efeito hover no botão */
 }

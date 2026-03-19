@@ -12,11 +12,11 @@
 
         return (
             <div>
-                <h2>{saudacao} {nomeFormatado}, seja bem-vindo!</h2>
+                <h2>{saudacao} {nomeFormatado}, Seja bem-vindo!</h2>
                 <p>{mensagem}</p>
                 <p>Vamos juntos construir uma rotina de hábitos saudável! 💪</p>
                 <p>Hoje é {dataFormatada}, às {horaFormatada}.</p>
             </div>
         )
     }
-    export default BemVindo 
+    export default BemVindo

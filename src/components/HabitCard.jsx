@@ -1,22 +1,37 @@
-function HabitCard({ titulo, descricao, meta, ativo = true, diasFeitos = 0, categoria = 'Geral' }) {
-    const metaAtingida = diasFeitos >= meta
-    const mensagemMeta = metaAtingida ? 'Meta atingida! Parabéns!' : `${diasFeitos} de ${meta} dias concluídos`
+function HabitCard({
+  titulo,
+  descricao = '',
+  meta,
+  ativo = true,
+  diasFeitos = 0,
+  categoria = '',
+  onRemover
+}) {
+  const metaAtingida = diasFeitos >= meta;
 
-    return (
-        <div className={`habit-card ${ativo ? 'ativo' : 'inativo'}`}>
-            <h3>{titulo}</h3>
-            <p>{descricao}</p>
-            <p>{mensagemMeta}</p>
-            <p>Meta: {meta} dias</p>
-            <p>Dias feitos: {diasFeitos}</p>
-            <small>Categoria: {categoria}</small>
+  return (
+    <div className={`habit-card ${ativo ? 'ativo' : 'inativo'}`}>
+      <h3>{titulo}</h3>
+      <span>{ativo ? '✅ Ativo' : '⏸️ Pausado'}</span>
+      
+      {descricao && <p>{descricao}</p>}
+      
+      <div>
+        <p><strong>Progresso:</strong> {diasFeitos} de {meta} dias</p>
+        <small>Categoria: {categoria || 'Geral'}</small>
+      </div>
 
-            {/* Ternário: dois resultados possíveis */}
-     <span>{ativo ? 'Ativo' : 'Pausado'}</span>
+      {metaAtingida && (
+        <p className="congrats">🏆 Meta atingida! Parabéns! 🎉</p>
+      )}
 
-     {/* &&: um resultado ou nada */}
-     {metaAtingida && (<p className="congrats">🎉 Parabéns por alcançar sua meta! 🎉</p>)}
-        </div>
-    )
+      {onRemover && (
+        <button type="button" onClick={onRemover}>
+          Remover
+        </button>
+      )}
+    </div>
+  );
 }
-export default HabitCard
+
+export default HabitCard;
