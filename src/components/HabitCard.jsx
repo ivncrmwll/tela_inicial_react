@@ -53,7 +53,6 @@ function HabitCard({
     </button>
   )}
 </div>
-
   );
 }
 
