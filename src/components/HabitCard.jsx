@@ -4,10 +4,14 @@ function HabitCard({
   meta,
   ativo = true,
   diasFeitos = 0,
-  categoria = '',
-  onRemover
+  categoria = 'Geral',
+  onRemover,
+  onToggle // Nova prop
 }) {
   const metaAtingida = diasFeitos >= meta;
+  const mensagemMeta = metaAtingida
+    ? 'Meta atingida! Parabéns!'
+    : `Faltam ${meta - diasFeitos} dia(s) para atingir a meta.`;
 
   return (
     <div className={`habit-card ${ativo ? 'ativo' : 'inativo'}`}>
@@ -21,8 +25,17 @@ function HabitCard({
         <small>Categoria: {categoria || 'Geral'}</small>
       </div>
 
-      {metaAtingida && (
-        <p className="congrats">🏆 Meta atingida! Parabéns! 🎉</p>
+      <p className={metaAtingida ? 'congrats' : undefined}>
+        {metaAtingida ? '🏆 ' : ''}
+        {mensagemMeta}
+        {metaAtingida ? ' 🎉' : ''}
+      </p>
+
+      {/* Novo botão de Toggle */}
+      {onToggle && (
+        <button type="button" onClick={onToggle} style={{ marginRight: '8px' }}>
+          {ativo ? 'Pausar' : 'Ativar'}
+        </button>
       )}
 
       {onRemover && (
@@ -30,6 +43,20 @@ function HabitCard({
           Remover
         </button>
       )}
+
+      {habits.map((habit) => (
+    <HabitCard
+        key={habit.id}
+        titulo={habit.titulo}
+        descricao={habit.descricao}
+        meta={habit.meta}
+        ativo={habit.ativo}
+        diasFeitos={habit.diasFeitos}
+        categoria={habit.categoria}
+        onRemover={() => removerHabit(habit.id)}
+        onToggle={() => toggleAtivo(habit.id)} /* Nova linha */
+    />
+))}
     </div>
   );
 }
