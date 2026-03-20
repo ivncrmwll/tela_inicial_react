@@ -1,30 +1,24 @@
-import './App.css'
-import { Logo } from './Logo'
+import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
-import Footer from './components/Footer' // Corrigido: Letra maiúscula
-import BemVindo from './components/BemVindo'
-import SecaoHabitos from './components/SecaoHabitos'
-import HabitList from './components/HabitList'
-import { HabitsProvider } from './contexts/HabitsContext'
+import Footer from './components/Footer'
+import PaginaInicio from './pages/PaginaInicio'
+import PaginaHabitos from './pages/PaginaHabitos'
+import PaginaDetalhes from './pages/PaginaDetalhes'
+import PaginaNaoEncontrada from './pages/PaginaNaoEncontrada'
 
 function App() {
-    return (
-        <HabitsProvider>
-            <div>
-                <Logo />
-                <Header titulo="My Daily Habits" descricao="Construindo uma rotina saudável todos os dias." />
-                
-                {/* Corrigido: Removida a prop totalHabitos */}
-                <BemVindo nomeUsuario="Ivan ITEAM" /> 
-                
-                <SecaoHabitos titulo="Meus Hábitos" descricao="Acompanhe o progresso dos seus hábitos diários." >
-                    {/* Corrigido: Removida a prop habits={habits} */}
-                    <HabitList /> 
-                </SecaoHabitos>
-                
-                <Footer />
-            </div>
-        </HabitsProvider>
-    )
+  return (
+    <div>
+      <Header />
+
+      <Routes>
+        <Route path="/"            element={<PaginaInicio />} />
+        <Route path="/habitos"     element={<PaginaHabitos />} />
+        <Route path="/habito/:id"  element={<PaginaDetalhes />} />
+        <Route path="*"            element={<PaginaNaoEncontrada />} />
+      </Routes>
+      <Footer />
+    </div>
+  )
 }
 export default App

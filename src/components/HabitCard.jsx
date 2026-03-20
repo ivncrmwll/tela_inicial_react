@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function HabitCard({
   titulo,
   descricao = '',
@@ -31,6 +33,13 @@ function HabitCard({
         {metaAtingida ? ' 🎉' : ''}
       </p>
 
+      <div className="habit-card-acoes">
+        {/* Link para a página de detalhes — usa o id do hábito na URL */}
+        <Link to={`/habito/${id}`} className="btn-detalhes">
+          Ver detalhes
+        </Link>
+        </div>
+
       {/* Novo botão de Toggle */}
       {onToggle && (
         <button type="button" onClick={onToggle} style={{ marginRight: '8px' }}>
@@ -38,26 +47,13 @@ function HabitCard({
         </button>
       )}
 
-      {onRemover && (
-        <button type="button" onClick={onRemover}>
-          Remover
-        </button>
-      )}
+  {onRemover && (
+    <button type="button" onClick={onRemover}>
+      Remover
+    </button>
+  )}
+</div>
 
-      {habits.map((habit) => (
-    <HabitCard
-        key={habit.id}
-        titulo={habit.titulo}
-        descricao={habit.descricao}
-        meta={habit.meta}
-        ativo={habit.ativo}
-        diasFeitos={habit.diasFeitos}
-        categoria={habit.categoria}
-        onRemover={() => removerHabit(habit.id)}
-        onToggle={() => toggleAtivo(habit.id)} /* Nova linha */
-    />
-))}
-    </div>
   );
 }
 

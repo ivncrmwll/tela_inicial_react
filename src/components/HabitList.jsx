@@ -1,10 +1,12 @@
 import { useState, useRef } from "react";
+import { useNavigate } from 'react-router-dom'
 import HabitCard from "./HabitCard";
 import { useHabits } from "../contexts/HabitsContext";
 
 function HabitList() {
     // 1. Consumindo o estado global do Contexto
-const { habits, adicionarHabit, removerHabit, limparHistorico, toggleAtivo } = useHabits();
+    const { habits, adicionarHabit, removerHabit, limparHistorico, toggleAtivo } = useHabits();
+    const navigate = useNavigate();
 
     // 2. Estados de UI
     const tituloInputRef = useRef(null);
@@ -80,6 +82,7 @@ const { habits, adicionarHabit, removerHabit, limparHistorico, toggleAtivo } = u
         });
         setErroTitulo('');
         tituloInputRef.current?.focus();
+        navigate(`/habito/${novoHabit.id}`) // redirecionapara a página de detalhes do novo hábito após salvaer
     };
 
     if (!habits) return null;
