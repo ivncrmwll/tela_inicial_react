@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 function HabitCard({
+  id,
   titulo,
   descricao = '',
   meta,
