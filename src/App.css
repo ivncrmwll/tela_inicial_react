@@ -1,247 +1,214 @@
+/* =========================
+   ESTRUTURA PRINCIPAL
+========================= */
 #root {
-  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 40px 20px;
 }
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-@keyframes logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-.card {
-  padding: 2em;
-}
-.read-the-docs {
-  color: #a1a1aa; /* Cinza mais claro para dar leitura no fundo escuro */
-}
-body {
- font-family: system-ui, -apple-system, sans-serif;
- margin: 0;
- background-color: #121212; /* Fundo principal escuro */
- color: #e4e4e7; /* Texto principal claro */
-}
-header, footer {
- padding: 16px;
- background-color: #1f2937; /* Cinza escuro para contrastar com o body */
- color: #f9fafb;
- text-align: center;
-}
-main, section {
- padding: 16px;
- max-width: 800px;
- margin: 0 auto;
-}
-.habit-card {
- background-color: #1e293b; /* Fundo do card escuro */
- border-radius: 8px;
- padding: 12px 16px;
- box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Sombra um pouco mais forte e escura */
- margin-bottom: 12px;
-}
-/* Melhorias no Formulário */
-.habit-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px; /* Espaçamento uniforme entre os campos */
-  text-align: left;
+
+/* =========================
+   CABEÇALHO E RODAPÉ
+========================= */
+header {
   background-color: #1e293b;
-  padding: 24px;
-  border-radius: 8px;
-}
-
-.habit-form div {
+  padding: 20px;
   display: flex;
-  flex-direction: column;
-}
-
-.habit-form label {
-  font-weight: 500;
-  color: #e2e8f0;
-  margin-bottom: 4px;
-}
-
-.habit-form input {
-  padding: 10px 12px;
-  border-radius: 6px;
-  border: 1px solid #475569;
-  background-color: #0f172a;
-  color: white;
-  outline: none;
-  font-size: 1rem;
-  transition: border-color 0.2s;
-}
-
-/* Destaque azul ao clicar no campo */
-.habit-form input:focus {
-  border-color: #3b82f6; 
-}
-
-.habit-form button {
-  margin-top: 8px;
-  padding: 12px;
-  font-size: 1rem;
-}
-/* Correção de Listas */
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-/* Alinhamento dos Cards */
-.habit-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  text-align: left;
-}
-
-.habit-card-acoes {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  justify-content: space-between;
   align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* Padronização de Links e Botões */
-.btn-detalhes, .btn-primario, button {
+header a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+
+header a:hover {
+  color: #38bdf8;
+}
+
+footer {
+  background-color: #1e293b;
+  text-align: center;
+  padding: 20px;
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-top: auto;
+}
+
+/* =========================
+   PÁGINA INICIAL
+========================= */
+.pagina-inicio {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagina-inicio h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.pagina-inicio p {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-bottom: 40px;
+}
+
+.resumo {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+  width: 100%;
+  justify-content: center;
+}
+
+.resumo-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  padding: 30px;
+  border-radius: 16px;
+  min-width: 180px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.resumo-card:hover {
+  transform: translateY(-5px);
+}
+
+.resumo-card strong {
+  display: block;
+  font-size: 3rem;
+  color: #38bdf8;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.resumo-card span {
+  color: #cbd5e1;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* =========================
+   BOTÕES E LINKS
+========================= */
+button, .btn-primario, .btn-detalhes {
   background-color: #3b82f6;
   color: white;
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
   border: none;
-  font-weight: 500;
-  text-align: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover, .btn-primario:hover, .btn-detalhes:hover {
+  background-color: #2563eb;
+}
+
+button:active, .btn-primario:active {
+  transform: scale(0.97);
 }
 
 .btn-remover {
   background-color: #ef4444;
 }
 
-.resumo {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 20px 0;
+.btn-remover:hover {
+  background-color: #dc2626;
 }
 
-.resumo-card {
+/* =========================
+   HÁBITOS (CARDS E LISTAS)
+========================= */
+ul {
+  list-style: none;
+}
+
+.habit-card {
   background-color: #1e293b;
+  border: 1px solid #334155;
+  border-left: 5px solid #3b82f6;
+  border-radius: 12px;
   padding: 20px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-}
-/* Página de Detalhes */
-.pagina-detalhes {
-  text-align: left;
-}
-
-.btn-voltar {
-  background-color: transparent;
-  color: #3b82f6;
-  padding: 0;
-  margin-bottom: 20px;
-}
-
-.btn-voltar:hover {
-  text-decoration: underline;
-}
-
-.detalhe-card {
-  background-color: #1e293b;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-}
-
-.detalhe-info {
-  margin: 20px 0;
+  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-.detalhe-info li {
-  background-color: #0f172a;
-  padding: 12px;
-  border-radius: 6px;
+.habit-card.inativo {
+  border-left-color: #64748b;
+  opacity: 0.8;
 }
 
-.detalhe-card .btn-remover {
-  width: 100%;
-  margin-top: 16px;
-  padding: 12px;
-}
-/* Página Inicial */
-.pagina-inicio {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.pagina-inicio h1 {
-  font-size: 2.5rem;
+.habit-card h3 {
+  font-size: 1.5rem;
+  margin: 0;
   color: #f8fafc;
-  margin-bottom: 10px;
 }
 
-.resumo-card strong {
-  font-size: 2.5rem;
-  color: #3b82f6;
+.habit-card-acoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.resumo-card span {
-  font-size: 0.9rem;
-  color: #94a3b8;
+/* =========================
+   FORMULÁRIO (DUAS COLUNAS)
+========================= */
+.habit-form {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Cria duas colunas de tamanhos iguais */
+  gap: 20px;
 }
 
-.btn-primario {
-  display: inline-block;
-  margin-top: 20px;
-  font-size: 1.1rem;
-  padding: 12px 24px;
+.habit-form div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
-/* Página 404 (Não Encontrada) */
-.pagina-404 {
-  text-align: center;
-  padding: 60px 20px;
+/* O botão de submit vai ocupar a largura total no final */
+.habit-form button[type="submit"] {
+  grid-column: 1 / -1; 
+  margin-top: 10px;
 }
 
-.pagina-404 h1 {
-  font-size: 4rem;
-  color: #ef4444;
-  margin-bottom: 10px;
-}
-
-.pagina-404 a {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background-color: #3b82f6;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.pagina-404 a:hover {
-  background-color: #2563eb;
+/* Responsividade: Volta para 1 coluna em telas de celular */
+@media (max-width: 600px) {
+  .habit-form {
+    grid-template-columns: 1fr;
+  }
 }

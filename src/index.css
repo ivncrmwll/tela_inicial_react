@@ -23,10 +23,12 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+  background-attachment: fixed;
+  color: #f8fafc;
   min-height: 100vh;
-  /* Removido o flex e o place-items para evitar problemas de layout */
+  -webkit-font-smoothing: antialiased;
 }
 
 h1 {
